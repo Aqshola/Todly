@@ -30,9 +30,8 @@ export default function Landing() {
           {/* IMAGE */}
 
           <Image
-            style={generateStyle.image}
+            containerStyle={generateStyle.image}
             source={require('@/assets/images/landing.png')}
-            containerStyle={generateStyle.imageConteiner}
           />
 
           {/* BUTTON */}
@@ -73,9 +72,13 @@ const style = (theme: Theme) =>
       fontWeight: '500',
       color: theme.colors.black,
     },
-    imageConteiner: {},
+
     image: {
-      marginLeft: 20,
+      marginHorizontal: 25,
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       aspectRatio: 0.9,
       resizeMode: 'cover',
     },
