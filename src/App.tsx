@@ -6,16 +6,16 @@
  */
 
 import React from 'react';
-import {ThemeProvider} from '@rneui/themed';
 import RootNavigator from '@/navigations';
+import {NativeBaseProvider} from 'native-base';
 import theme from '@/theme/theme';
 
 function App(): JSX.Element {
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <NativeBaseProvider theme={theme}>
         <RootNavigator />
-      </ThemeProvider>
+      </NativeBaseProvider>
     </>
   );
 }

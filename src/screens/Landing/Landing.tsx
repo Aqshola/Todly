@@ -1,97 +1,51 @@
+import {Heading, Box, Text, StatusBar, Image, Button} from 'native-base';
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, StatusBar} from 'react-native';
-import {useTheme, Text, Image, Button} from '@rneui/themed';
-import {Theme} from '@rneui/base';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import Illustration from '@/assets/images/landing.png';
 
 export default function Landing() {
-  const {theme} = useTheme();
-  const generateStyle = style(theme);
-
   return (
     <>
       <StatusBar
-        backgroundColor={theme.colors.primary}
-        showHideTransition={'fade'}
+        backgroundColor={'#FDEA6B'}
+        barStyle={'light-content'}
         animated={true}
-        translucent={true}
       />
-      <SafeAreaView style={generateStyle.wrapper}>
-        <View style={generateStyle.parent}>
-          {/* HEADING */}
-          <View>
-            <Text h1 h1Style={generateStyle.h1Style}>
-              Todly
-            </Text>
-            <Text style={generateStyle.pStyle}>
-              Manage and organize your daily task
-            </Text>
-          </View>
-
-          {/* IMAGE */}
-
+      <SafeAreaView
+        style={{
+          flex: 1,
+        }}>
+        <Box flex={1} px="5" pb="5" backgroundColor={'primary.primary'}>
+          <Heading
+            fontFamily={'heading'}
+            fontWeight={'900'}
+            mt={'10'}
+            fontSize={'5xl'}>
+            Todly
+          </Heading>
+          <Text fontFamily={'body'} fontSize={'lg'} width={'56'}>
+            Manage and organized your daily task
+          </Text>
           <Image
-            containerStyle={generateStyle.image}
-            source={require('@/assets/images/landing.png')}
+            alignSelf={'center'}
+            source={Illustration}
+            alt="someone with phone"
+            height={300}
+            width={200}
+            resizeMode="cover"
           />
-
-          {/* BUTTON */}
           <Button
-            titleStyle={generateStyle.titleOutlineButton}
-            title={'Lets do it'}
-            type="solid"
-            buttonStyle={generateStyle.outlineButton}
-            radius={5}
-          />
-        </View>
+            mt={'auto'}
+            bgColor={'white'}
+            borderColor={'black'}
+            borderWidth={'2'}
+            rounded={'lg'}>
+            <Text fontFamily={'heading'} fontSize={'lg'} fontWeight={'700'}>
+              Let's do it
+            </Text>
+          </Button>
+        </Box>
       </SafeAreaView>
     </>
   );
 }
-
-const style = (theme: Theme) =>
-  StyleSheet.create({
-    wrapper: {
-      backgroundColor: theme.colors.primary,
-      flex: 1,
-    },
-    parent: {
-      flex: 1,
-      paddingHorizontal: 20,
-      paddingVertical: 30,
-      alignContent: 'center',
-    },
-    outlineButton: {
-      marginTop: 30,
-      backgroundColor: theme.colors.white,
-      color: theme.colors.black,
-      borderColor: theme.colors.black,
-      borderWidth: 2,
-    },
-    titleOutlineButton: {
-      fontFamily: 'Nunito-Medium',
-      fontWeight: '500',
-      color: theme.colors.black,
-    },
-
-    image: {
-      marginHorizontal: 25,
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      aspectRatio: 0.9,
-      resizeMode: 'cover',
-    },
-    h1Style: {
-      fontFamily: 'Nunito-ExtraBold',
-      fontWeight: '300',
-      fontSize: 54,
-    },
-    pStyle: {
-      letterSpacing: 1,
-      width: '80%',
-      fontFamily: 'Nunito-Medium',
-      fontWeight: '400',
-      fontSize: 18,
-    },
-  });

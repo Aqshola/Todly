@@ -13,11 +13,11 @@ export default function RootNavigator() {
           headerShown: false,
         }}>
         {/* PUBLIC */}
-        {/* <Stack.Screen name={NAVIGATION.landing} component={Landing} />
-        <Stack.Screen name={NAVIGATION.home} component={Home} /> */}
+        <Stack.Screen name={NAVIGATION.landing} component={Landing} />
+        {/* <Stack.Screen name={NAVIGATION.home} component={Home} /> */}
 
         {/* AUTH */}
-        <Stack.Screen name={NAVIGATION.login} component={Login} />
+        {/* <Stack.Screen name={NAVIGATION.login} component={Login} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
