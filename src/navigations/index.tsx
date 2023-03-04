@@ -9,14 +9,12 @@ export default function RootNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName={NAVIGATION.login}
         screenOptions={{
           headerShown: false,
         }}>
-        {/* PUBLIC */}
-        {/* <Stack.Screen name={NAVIGATION.landing} component={Landing} /> */}
-        {/* <Stack.Screen name={NAVIGATION.home} component={Home} /> */}
+        <Stack.Screen name={NAVIGATION.home} component={Home} />
         <Stack.Screen name={NAVIGATION.login} component={Login} />
-
         {/* AUTH */}
         {/* <Stack.Screen name={NAVIGATION.login} component={Login} /> */}
       </Stack.Navigator>
