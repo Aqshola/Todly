@@ -7,7 +7,12 @@ interface Props {
 function Fullscreen({...props}: Props) {
   return (
     <>
-      <SafeAreaView>{props.children}</SafeAreaView>
+      <SafeAreaView
+        style={{
+          flex: 1,
+        }}>
+        {props.children}
+      </SafeAreaView>
     </>
   );
 }

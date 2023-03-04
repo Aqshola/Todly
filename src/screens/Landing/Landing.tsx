@@ -1,9 +1,12 @@
 import {Heading, Box, Text, Image, Button} from 'native-base';
 import React from 'react';
 import Illustration from '@/assets/images/landing.png';
+import {useNavigation} from '@react-navigation/native';
+import {NAVIGATION} from '@/constants';
 import Wrapper from '@/components/wrapper/Wrapper';
 
 export default function Landing() {
+  const navigate = useNavigation<any>();
   return (
     <Wrapper>
       <Box flex={1} px="5" pb="5" backgroundColor={'primary.primary'}>
@@ -17,15 +20,18 @@ export default function Landing() {
         <Text fontFamily={'body'} fontSize={'lg'} width={'56'}>
           Manage and organized your daily task
         </Text>
-        <Image
-          alignSelf={'center'}
-          source={Illustration}
-          alt="someone with phone"
-          height={300}
-          width={200}
-          resizeMode="cover"
-        />
+
+        <Box width="100%" height={400} mt="10">
+          <Image
+            alignSelf={'center'}
+            source={Illustration}
+            alt="someone with phone"
+            resizeMode="cover"
+            flex={1}
+          />
+        </Box>
         <Button
+          onPress={() => navigate.navigate(NAVIGATION.login)}
           mt={'auto'}
           bgColor={'white'}
           borderColor={'black'}

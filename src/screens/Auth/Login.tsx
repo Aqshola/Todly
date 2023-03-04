@@ -1,4 +1,3 @@
-import Wrapper from '@/components/wrapper/Wrapper';
 import {
   Heading,
   Box,
@@ -13,9 +12,13 @@ import {
 import React, {useState} from 'react';
 import Antd from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
+import {useNavigation} from '@react-navigation/native';
+import {NAVIGATION} from '@/constants';
+import Wrapper from '@/components/wrapper/Wrapper';
 
 export default function Login() {
   const [passwordMode, setpasswordMode] = useState(true);
+  const navigate = useNavigation<any>();
   return (
     <Wrapper>
       <Box px="10" py="10" backgroundColor={'primary.primary'}>
@@ -120,8 +123,10 @@ export default function Login() {
         <Text mt="5" fontWeight="800" textAlign={'center'} fontSize={'lg'}>
           OR
         </Text>
-
-        <Pressable alignSelf="center" mt="5">
+        <Pressable
+          alignSelf="center"
+          mt="5"
+          onPress={() => navigate.navigate(NAVIGATION.register, {})}>
           <Text
             textAlign={'center'}
             fontWeight="800"
